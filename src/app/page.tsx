@@ -5,7 +5,11 @@ import { OrderServiceForm } from "@/components/OrderServiceForm";
 import OrderServicePDF from "@/components/OrderServicePDF/OrderServicePDF";
 import { Sidebar } from "@/components/Sidebar";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
+
+const PDFViewer = dynamic(() => import("@react-pdf/renderer").then((mod) => mod.PDFViewer), {
+  ssr: false,
+});
 
 export interface Item {
   name: string;
@@ -29,12 +33,15 @@ export default function Home() {
     observations: "",
   });
 
-  const PDFViewer = dynamic(
-    () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
-    {
-      ssr: false,
-    }
-  );
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Memoriza o documento PDF para evitar re-renderizações desnecessárias
+  const pdfDocument = useMemo(() => <OrderServicePDF formData={formData} />, [formData]);
+
   return (
     <div className="w-full h-screen flex">
       <Sidebar />
@@ -47,9 +54,11 @@ export default function Home() {
           </section>
 
           <section className="w-[63%] h-auto bg-custom-gray-50 p-10 rounded-md">
-            <PDFViewer width="100%" height="1000px" showToolbar={false}>
-              <OrderServicePDF formData={formData} />
-            </PDFViewer>
+            {isClient && (
+              <PDFViewer width="100%" height="1000px" showToolbar={false}>
+                {pdfDocument}
+              </PDFViewer>
+            )}
           </section>
         </main>
       </div>
