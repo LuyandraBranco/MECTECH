@@ -42,12 +42,8 @@ export default function Home() {
           <section className="w-[63%] h-auto bg-custom-gray-50 p-10 rounded-md">
             <PDFViewer
               width="100%"
-              height="500px"
+              height="1000px"
               showToolbar={false}
-              style={{
-                border: "none",
-                overflow: "hidden",
-              }}
             >
               <OrderServicePDF formData={formData} />
             </PDFViewer>

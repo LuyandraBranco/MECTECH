@@ -1,18 +1,17 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
 
 Font.register({
-    family: 'Inter',
-    src: '/fonts/inter.ttf',
-  });
+  family: "Inter",
+  src: "/fonts/inter.ttf",
+});
 
 export const styles = StyleSheet.create({
   page: {
     padding: 30,
     fontSize: 12,
     height: "auto",
-    position: "relative",
     fontFamily: "Inter",
-    overflow: "hidden"
+    borderRadius: 8,
   },
   header: {
     width: "100%",
@@ -29,7 +28,7 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
   },
   labelHeader: {
-    fontSize: 19.39,
+    fontSize: 15,
     fontWeight: "bold",
     marginBottom: 10,
     color: "#848484",
@@ -41,7 +40,7 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
   },
   title: {
-    fontSize: 25.85,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
     color: "#414552",
@@ -50,7 +49,7 @@ export const styles = StyleSheet.create({
     marginBottom: 30,
   },
   bold: {
-    fontSize: 16.16,
+    fontSize: 15,
     fontWeight: "bold",
     color: "#414552",
     marginBottom: 10,
@@ -80,18 +79,14 @@ export const styles = StyleSheet.create({
     color: "#414552",
   },
   redText: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#FF0000",
     fontWeight: "600",
   },
   greenText: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#15BE53",
     fontWeight: "600",
-  },
-  line: {
-    borderBottom: "1px solid #000",
-    marginVertical: 5,
   },
   footer: {
     width: "100%",
@@ -99,8 +94,8 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    position: "absolute",
-    bottom: 10,
+    marginTop: "auto",
+    paddingTop: 20,
   },
   seetings: {
     width: 84,
@@ -108,7 +103,7 @@ export const styles = StyleSheet.create({
     objectFit: "cover",
   },
   signatureContainer: {
-    width: "40%",
+    width: "25%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -119,9 +114,15 @@ export const styles = StyleSheet.create({
     height: 89.19,
     objectFit: "cover",
   },
+  signatureLine: {
+    width: "100%",
+    height: 1,
+    backgroundColor: "#000",
+    marginTop: 2,
+  },
   textSignature: {
-    fontSize: 12.64,
+    fontSize: 11,
     color: "#414552",
-    marginBottom: 1,
+    marginTop: 3,
   },
 });

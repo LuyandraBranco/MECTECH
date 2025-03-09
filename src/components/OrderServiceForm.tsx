@@ -1,4 +1,6 @@
 import { useState } from "react";
+import OrderServicePDF from "./OrderServicePDF/OrderServicePDF";
+import { pdf } from "@react-pdf/renderer";
 
 interface Item {
   name: string;
@@ -55,6 +57,20 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
     }));
     setNewComplementaryMaterial({ name: "", quantity: "" });
   };
+
+  const handleDownloadPDF = async () => {
+    const doc = <OrderServicePDF formData={formData} />;
+    const blob = await pdf(doc).toBlob();
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Ordem_de_Servico.pdf";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+  
   return (
     <form className="flex flex-col">
       <div className="flex flex-col mt-5">
@@ -244,6 +260,7 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
           <button
             type="button"
             className="btn w-[30%] border-2 border-custom-gray-100 p-1.5 rounded-md text-sm font-semibold"
+            onClick={handleDownloadPDF}
           >
             Imprimir
           </button>

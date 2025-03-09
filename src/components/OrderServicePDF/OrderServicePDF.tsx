@@ -81,8 +81,9 @@ export function OrderServicePDF({ formData }: Props) {
           <Img style={styles.seetings} source={seetings} />
           <View style={styles.signatureContainer}>
             <Img style={styles} source={signature} />
-            <Text>Marcelo Timóteo</Text>
-            <Text>Mecânico Responsável</Text>
+            <View style={styles.signatureLine} />
+            <Text style={styles.textSignature}>Marcelo Timóteo</Text>
+            <Text style={styles.textSignature}>Mecânico Responsável</Text>
           </View>
         </View>
       </Page>
