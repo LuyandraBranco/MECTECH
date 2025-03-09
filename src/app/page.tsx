@@ -6,23 +6,11 @@ import OrderServicePDF from "@/components/OrderServicePDF/OrderServicePDF";
 import { Sidebar } from "@/components/Sidebar";
 import dynamic from "next/dynamic";
 import { useState, useEffect, useMemo } from "react";
+import { FormData } from "@/@types/FormData";
 
 const PDFViewer = dynamic(() => import("@react-pdf/renderer").then((mod) => mod.PDFViewer), {
   ssr: false,
 });
-
-export interface Item {
-  name: string;
-  quantity: string;
-}
-
-export interface FormData {
-  name: string;
-  description: string;
-  additionalItems: Item[];
-  complementaryMaterials: Item[];
-  observations: string;
-}
 
 export default function Home() {
   const [formData, setFormData] = useState<FormData>({
@@ -39,7 +27,6 @@ export default function Home() {
     setIsClient(true);
   }, []);
 
-  // Memoriza o documento PDF para evitar re-renderizações desnecessárias
   const pdfDocument = useMemo(() => <OrderServicePDF formData={formData} />, [formData]);
 
   return (

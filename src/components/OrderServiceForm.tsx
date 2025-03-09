@@ -1,24 +1,7 @@
 import { useState } from "react";
 import OrderServicePDF from "./OrderServicePDF/OrderServicePDF";
 import { pdf } from "@react-pdf/renderer";
-
-interface Item {
-  name: string;
-  quantity: string;
-}
-
-interface FormData {
-  name: string;
-  description: string;
-  additionalItems: Item[];
-  complementaryMaterials: Item[];
-  observations: string;
-}
-
-interface Props {
-  formData: FormData;
-  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
-}
+import { FormData, Item } from "@/@types/FormData";
 
 interface Props {
   formData: FormData;
@@ -62,7 +45,7 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
     const doc = <OrderServicePDF formData={formData} />;
     const blob = await pdf(doc).toBlob();
     const url = URL.createObjectURL(blob);
-    
+
     const a = document.createElement("a");
     a.href = url;
     a.download = "Ordem_de_Servico.pdf";
@@ -70,7 +53,7 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
     a.click();
     document.body.removeChild(a);
   };
-  
+
   return (
     <form className="flex flex-col">
       <div className="flex flex-col mt-5">
@@ -282,10 +265,10 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
           </div>
         </div>
 
-        <div className="flex items-center justify-end gap-1 mt-6 mb-8">
+        <div className="flex items-center justify-end gap-1 mt-6 mb-8 text-sm">
           <input
             type="checkbox"
-            className="w-5 h-5 border-2 border-red-500 rounded-sm checked:bg-red-500 checked:border-transparent focus:ring-0"
+            className="w-5 h-5 flex bg-custom-red-500 border rounded-md appearance-none cursor-pointer checked:before:content-['✔'] checked:before:text-white checked:before:text-xl checked:before:font-bold checked:before:flex checked:before:items-center checked:before:justify-center"
           />
           Enviar por e-mail ao salvar
         </div>

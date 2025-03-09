@@ -12,19 +12,7 @@ import {
   PDFViewer,
 } from "@react-pdf/renderer";
 import { styles } from "./styles";
-
-interface Item {
-  name: string;
-  quantity: string;
-}
-
-interface FormData {
-  name: string;
-  description: string;
-  additionalItems: Item[];
-  complementaryMaterials: Item[];
-  observations: string;
-}
+import { FormData } from "@/@types/FormData";
 
 interface Props {
   formData: FormData;

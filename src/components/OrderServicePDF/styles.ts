@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     height: "auto",
     fontFamily: "Inter",
     borderRadius: 8,
+    backgroundColor: "white",
   },
   header: {
     width: "100%",
