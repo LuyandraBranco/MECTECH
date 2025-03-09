@@ -5,7 +5,7 @@ import profile from "@/assets/images/profile.png";
 
 export function Sidebar() {
   return (
-    <aside className="w-[20%] h-auto flex flex-col border-2 border-r-custom-gray-50">
+    <aside className="w-[20%] min-h-screen flex flex-col border-r-2 border-custom-gray-50">
       <div className="flex mt-5 items-center px-4 gap-2">
         <Image
           width={20}
@@ -27,13 +27,13 @@ export function Sidebar() {
           </Link>
         </li>
         <li className="flex items-center gap-2">
-          <Link href="/clientes" className="flex items-center gap-2">
+          <Link href="#" className="flex items-center gap-2">
             <ContactRound className="w-5 h-5" />
             Clientes
           </Link>
         </li>
         <li className="flex items-center gap-2">
-          <Link href="/agenda" className="flex items-center gap-2">
+          <Link href="#" className="flex items-center gap-2">
             <Calendar1 className="w-5 h-5" />
             Agenda
           </Link>
@@ -45,8 +45,8 @@ export function Sidebar() {
             <span>Cadastros</span>
           </button>
           <ul className="pl-10 mt-1 space-y-1">
-            <li className="flex items-center p-2 text-red-600">
-              <Link href="/cadastros/ordem-de-servico">Ordem de Serviço</Link>
+            <li className="flex items-center p-2 text-custom-red-500">
+              <Link href="#">Ordem de Serviço</Link>
             </li>
           </ul>
         </li>

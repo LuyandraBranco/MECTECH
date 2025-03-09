@@ -31,7 +31,7 @@ export function OrderServicePDF({ formData }: Props) {
           <View style={styles.textHeader}>
             <Text style={styles.labelHeader}>Ordem de Serviço</Text>
             <Text style={styles.title}>
-              {formData.name || "Nenhuma  Ordem de Serviço fornecida."}
+              {formData.name || "Nenhuma  Ordem de Serviço"}
             </Text>
           </View>
           <Img style={styles.img} source={avatar} />
@@ -40,7 +40,7 @@ export function OrderServicePDF({ formData }: Props) {
         <View style={styles.section}>
           <Text style={styles.bold}>Descrição do Serviço:</Text>
           <Text style={styles.normalText}>
-            {formData.description || "Nenhuma descrição fornecida."}
+            {formData.description || "Nenhuma descrição fornecida"}
           </Text>
         </View>
 

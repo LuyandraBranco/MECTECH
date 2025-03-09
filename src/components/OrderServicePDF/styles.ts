@@ -1,4 +1,9 @@
-import { StyleSheet } from "@react-pdf/renderer";
+import { StyleSheet, Font } from "@react-pdf/renderer";
+
+Font.register({
+    family: 'Inter',
+    src: '/fonts/inter.ttf',
+  });
 
 export const styles = StyleSheet.create({
   page: {
@@ -6,6 +11,8 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     height: "auto",
     position: "relative",
+    fontFamily: "Inter",
+    overflow: "hidden"
   },
   header: {
     width: "100%",

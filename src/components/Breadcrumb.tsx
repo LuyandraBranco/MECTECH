@@ -6,7 +6,7 @@ export function Breadcrumb({ label, href }: IProps) {
   return (
     <nav>
       <h1 className="text-custom-gray-500 text-xs">
-        {label} <span className="font-semibold"> &gt; {href}</span>
+        {label} &gt; <span className="font-semibold"> {href}</span>
       </h1>
     </nav>
   );

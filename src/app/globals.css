@@ -8,17 +8,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'BlinkMacSystemFont';
-  src: url('/fonts/blinkmacsystemfont-light.otf') format('opentype'),
-    url('/fonts/blinkmacsystemfont-bold.otf') format('opentype');
-  font-weight: normal, bolder;
-  font-style: normal;
-}
-
-body {
-  font-family: 'BlinkMacSystemFont', sans-serif;
-}
 
 @layer utilities {
   .text-balance {

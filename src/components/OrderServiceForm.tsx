@@ -58,23 +58,23 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
   return (
     <form className="flex flex-col">
       <div className="flex flex-col mt-5">
-        <label htmlFor="name" className="text-sm">
+        <label htmlFor="name" className="text-sm font-medium">
           Nome da Ordem do Serviço
         </label>
         <input
           type="text"
           name="name"
-          className="w-[95%] border-2 border-custom-gray-100 rounded-md p-1 mt-2"
+          className="w-[100%] border-2 border-custom-gray-100 rounded-md p-1 mt-2 pl-2"
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         />
       </div>
 
       <div className="flex flex-col mt-5">
-        <label htmlFor="name" className="text-sm">
+        <label htmlFor="name" className="text-sm font-medium">
           Descrição do Serviço
         </label>
         <textarea
-          className="w-[95%] h-[5.1875rem] border-2 border-custom-gray-100 rounded-md pl-1 pb-8 mt-2 resize-none"
+          className="w-[100%] h-[5.1875rem] border-2 border-custom-gray-100 rounded-md pl-1 pb-8 mt-2 pl-2 resize-none"
           onChange={(e) =>
             setFormData({ ...formData, description: e.target.value })
           }
@@ -82,18 +82,18 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
       </div>
 
       <div className="flex flex-col mt-5">
-        <h2 className="text-md text-red-500 font-semibold text-base">
+        <h2 className="text-md text-custom-red-500 font-semibold text-base">
           Itens Adicionais
         </h2>
         <div className="w-full flex justify-between mt-2">
-          <div className="w-[75%] flex flex-col">
-            <label htmlFor="name" className="text-sm">
+          <div className="w-[80%] flex flex-col">
+            <label htmlFor="name" className="text-sm font-medium">
               Item
             </label>
             <input
               type="text"
               name="name"
-              className="w-[95%] border-2 border-custom-gray-100 rounded-md p-1 mt-2"
+              className="w-[95%] border-2 border-custom-gray-100 rounded-md p-1 mt-2 pl-2"
               value={newAdditionalItem.name}
               onChange={(e) =>
                 setNewAdditionalItem({
@@ -103,14 +103,14 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
               }
             />
           </div>
-          <div className="w-[25%] flex flex-col">
-            <label htmlFor="name" className="text-sm">
+          <div className="w-[19.5%] flex flex-col justify-en">
+            <label htmlFor="name" className="text-sm font-medium">
               Quantidade
             </label>
             <input
               type="text"
               name="name"
-              className="w-[85%] border-2 border-custom-gray-100 rounded-md p-1 mt-2"
+              className="w-[100%] border-2 border-custom-gray-100 rounded-md p-1 mt-2 pl-2"
               value={newAdditionalItem.quantity}
               onChange={(e) =>
                 setNewAdditionalItem({
@@ -134,14 +134,20 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
         <div className="w-full flex justify-between mt-5">
           <button
             type="button"
-            className="btn w-[63%] bg-red-500 p-1 rounded-md text-white text-sm font-semibold"
+            className="btn w-[63%] bg-custom-red-500 p-1 rounded-md text-white text-sm font-semibold"
             onClick={addAdditionalItem}
           >
             Adicionar Item
           </button>
           <button
             type="button"
-            className="btn w-[35%] bg-red-500 p-1 rounded-md text-white text-sm font-semibold"
+            className="btn w-[35%] bg-custom-red-500 p-1 rounded-md text-white text-sm font-semibold"
+            onClick={() => {
+              setFormData((prev) => ({
+                ...prev,
+                additionalItems: [],
+              }));
+            }}
           >
             Texto Livre
           </button>
@@ -149,18 +155,18 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
       </div>
 
       <div className="flex flex-col mt-5">
-        <h2 className="text-md text-green-500 font-semibold">
+        <h2 className="text-md text-custom-green-300 font-semibold">
           Materias Complementares
         </h2>
         <div className="w-full flex justify-between mt-2">
-          <div className="w-[75%] flex flex-col">
-            <label htmlFor="name" className="text-sm">
+          <div className="w-[80%] flex flex-col">
+            <label htmlFor="name" className="text-sm font-medium">
               Item
             </label>
             <input
               type="text"
               name="name"
-              className="w-[95%] border-2 border-custom-gray-100 rounded-md p-1 mt-2"
+              className="w-[95%] border-2 border-custom-gray-100 rounded-md p-1 mt-2 pl-2"
               value={newComplementaryMaterial.name}
               onChange={(e) =>
                 setNewComplementaryMaterial({
@@ -170,14 +176,14 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
               }
             />
           </div>
-          <div className="w-[25%] flex flex-col">
-            <label htmlFor="name" className="text-sm">
+          <div className="w-[19.5%] flex flex-col justify-end">
+            <label htmlFor="name" className="text-sm font-medium">
               Quantidade
             </label>
             <input
               type="text"
               name="name"
-              className="w-[85%] border-2 border-custom-gray-100 rounded-md p-1 mt-2"
+              className="w-[100%] border-2 border-custom-gray-100 rounded-md p-1 mt-2 pl-2"
               value={newComplementaryMaterial.quantity}
               onChange={(e) =>
                 setNewComplementaryMaterial({
@@ -193,7 +199,8 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
           <ul className="w-full">
             {formData.complementaryMaterials.map((material, index) => (
               <li key={index} className="text-sm">
-                {material.name} - {material.quantity}
+                {material.name} ............................................
+                {material.quantity}
               </li>
             ))}
           </ul>
@@ -202,26 +209,34 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
         <div className="w-full flex justify-between mt-5">
           <button
             type="button"
-            className="btn w-[63%] bg-green-500 p-1 rounded-md text-white text-sm font-semibold"
+            className="btn w-[63%] bg-custom-green-300 p-1 rounded-md text-white text-sm font-semibold"
             onClick={addComplementaryMaterial}
           >
             Adicionar Material
           </button>
           <button
             type="button"
-            className="btn w-[35%] bg-green-500 p-1 rounded-md text-white text-sm font-semibold"
+            className="btn w-[35%] bg-custom-green-300 p-1 rounded-md text-white text-sm font-semibold"
+            onClick={() => {
+              setFormData((prev) => ({
+                ...prev,
+                complementaryMaterials: [],
+              }));
+            }}
           >
             Texto Livre
           </button>
         </div>
 
         <div className="w-full flex flex-col mt-8">
-          <label htmlFor="name" className="text-sm">
+          <label htmlFor="name" className="text-sm font-medium">
             Observações ou Instruções Adicionais
           </label>
           <textarea
-            className="w-[100%] h-[9.025rem] border-2 border-custom-gray-100 rounded-md p-1 pb-8 mt-2 resize-none"
-            onChange={(e) => setFormData({ ...formData, observations: e.target.value })}
+            className="w-[100%] h-[9.025rem] border-2 border-custom-gray-100 rounded-md p-1 pb-8 mt-2 pl-2 resize-none"
+            onChange={(e) =>
+              setFormData({ ...formData, observations: e.target.value })
+            }
           />
         </div>
 
@@ -243,15 +258,18 @@ export function OrderServiceForm({ formData, setFormData }: Props) {
 
             <button
               type="button"
-              className="btn w-[30%] bg-red-500 p-1.5 rounded-md text-white text-sm font-semibold"
+              className="btn w-[30%] bg-custom-red-500 p-1.5 rounded-md text-white text-sm font-semibold"
             >
               Salvar
             </button>
           </div>
         </div>
 
-        <div className="flex justify-end gap-1 mt-6 mb-8">
-          <input type="checkbox" />
+        <div className="flex items-center justify-end gap-1 mt-6 mb-8">
+          <input
+            type="checkbox"
+            className="w-5 h-5 border-2 border-red-500 rounded-sm checked:bg-red-500 checked:border-transparent focus:ring-0"
+          />
           Enviar por e-mail ao salvar
         </div>
       </div>

@@ -18,6 +18,7 @@ const config: Config = {
         "custom-gray-100": "#E6E6E6",
         "custom-gray-500": "#414552",
         "custom-red-500": "#FF0000",
+        "custom-green-300": "#15BE53"
       },
     },
   },
