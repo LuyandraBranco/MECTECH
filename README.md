@@ -3,6 +3,8 @@
 ## 🛠 Sobre o MecTech
 O **MecTech** é um sistema para gestão de ordens de serviço em oficinas mecânicas. Ele permite que mecânicos e administradores organizem e documentem serviços realizados nos veículos de clientes, gerando um **PDF dinâmico** com os detalhes da ordem de serviço.
 
+![alt text](image.png)
+
 ## 🚀 Funcionalidades Principais
 - 📑 **Criação de Ordens de Serviço** com informações detalhadas.
 - 🔍 **Visualização em Tempo Real** do documento gerado.
