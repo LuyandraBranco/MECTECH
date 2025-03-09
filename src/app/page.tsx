@@ -2,7 +2,7 @@
 
 import { Header } from "@/components/Header";
 import { OrderServiceForm } from "@/components/OrderServiceForm";
-import OrderServicePDF from "@/components/OrderServicePDF";
+import OrderServicePDF from "@/components/OrderServicePDF/OrderServicePDF";
 import { Sidebar } from "@/components/Sidebar";
 import { PDFViewer } from "@react-pdf/renderer";
 import { useState } from "react";
