@@ -11,7 +11,7 @@ export function Header() {
         <Image width={83.23} height={18.9} src={mectech} alt="logo mectech" />
         <button
           type="button"
-          className="w-[4.875rem] h-[1.3125] bg-custom-red-500 text-white flex items-center justify-center text-sm rounded-md"
+          className="w-[4.875rem] h-[1.3125] bg-custom-red-500 gap-1 text-white flex items-center justify-center text-sm rounded-md"
         >
           <ListChecks className="w-5 h-15" /> Tarefas
         </button>
