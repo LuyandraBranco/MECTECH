@@ -5,7 +5,7 @@ import profile from "@/assets/images/profile.png";
 
 export function Sidebar() {
   return (
-    <aside className="w-[20%] min-h-screen flex flex-col border-r-2 border-custom-gray-50">
+    <aside className="w-[20%] min-h-screen hidden lg:flex flex-col border-r-2 border-custom-gray-50">
       <div className="flex mt-5 items-center px-4 gap-2">
         <Image
           width={20}

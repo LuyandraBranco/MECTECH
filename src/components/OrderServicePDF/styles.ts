@@ -7,6 +7,7 @@ Font.register({
 
 export const styles = StyleSheet.create({
   page: {
+    width: "100%",
     padding: 30,
     fontSize: 12,
     height: "auto",
