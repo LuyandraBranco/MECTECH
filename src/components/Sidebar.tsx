@@ -1,22 +1,25 @@
 import { Calendar1, ContactRound, FileText, House } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link"; // Importando o Link do Next.js
+import Link from "next/link";
+import profile from "@/assets/images/profile.png";
 
 export function Sidebar() {
   return (
-    <aside className="w-[20%] flex flex-col border-2 border-r-custom-gray-50">
-      <div className="flex mt-5 items-center">
+    <aside className="w-[20%] h-auto flex flex-col border-2 border-r-custom-gray-50">
+      <div className="flex mt-5 items-center px-4 gap-2">
         <Image
           width={20}
           height={20}
-          src="../../assets/images/profile.svg"
+          src={profile}
           alt="foto de perfil"
           className="rounded-full"
         />
-        <span>Marcelo Timóteo</span>
+        <span className="text-custom-gray-500 font-semibold">
+          Marcelo Timóteo
+        </span>
       </div>
 
-      <ul className="space-y-4 px-4 mt-10">
+      <ul className="space-y-4 px-4 mt-10 text-custom-gray-500 font-semibold">
         <li className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <House className="w-5 h-5" />
