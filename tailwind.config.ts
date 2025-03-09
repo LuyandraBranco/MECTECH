@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         "custom-gray-50": "#ECECEC",
         "custom-gray-500": "#414552",
+        "custom-red-500": "#FF0000",
       },
     },
   },
