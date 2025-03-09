@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { OrderServiceForm } from "@/components/OrderServiceForm";
 import OrderServicePDF from "@/components/OrderServicePDF/OrderServicePDF";
 import { Sidebar } from "@/components/Sidebar";
-import { PDFViewer } from "@react-pdf/renderer";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 
 export interface Item {
@@ -28,6 +28,13 @@ export default function Home() {
     complementaryMaterials: [],
     observations: "",
   });
+
+  const PDFViewer = dynamic(
+    () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
+    {
+      ssr: false,
+    }
+  );
   return (
     <div className="w-full h-screen flex">
       <Sidebar />
@@ -40,7 +47,9 @@ export default function Home() {
           </section>
 
           <section className="w-[63%] h-auto bg-custom-gray-50 p-10 rounded-md">
-            <OrderServicePDF formData={formData} />
+            <PDFViewer width="100%" height="1000px" showToolbar={false}>
+              <OrderServicePDF formData={formData} />
+            </PDFViewer>
           </section>
         </main>
       </div>

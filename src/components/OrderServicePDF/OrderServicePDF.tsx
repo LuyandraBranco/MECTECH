@@ -32,73 +32,69 @@ interface Props {
 
 export function OrderServicePDF({ formData }: Props) {
   return (
-    <PDFViewer width="100%" height="1000px" showToolbar={false}>
-      <Document>
-        <Page size="A4" style={styles.page}>
-          <View style={styles.header}>
-            <View style={styles.textHeader}>
-              <Text style={styles.labelHeader}>Ordem de Serviço</Text>
-              <Text style={styles.title}>
-                {formData.name || "Nenhuma  Ordem de Serviço"}
-              </Text>
-            </View>
-            <Img style={styles.img} source={avatar} />
-          </View>
-
-          <View style={styles.section}>
-            <Text style={styles.bold}>Descrição do Serviço:</Text>
-            <Text style={styles.normalText}>
-              {formData.description || "Nenhuma descrição fornecida"}
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.header}>
+          <View style={styles.textHeader}>
+            <Text style={styles.labelHeader}>Ordem de Serviço</Text>
+            <Text style={styles.title}>
+              {formData.name || "Nenhuma  Ordem de Serviço"}
             </Text>
           </View>
+          <Img style={styles.img} source={avatar} />
+        </View>
 
-          <View style={styles.section}>
-            <Text style={styles.redText}>Itens Adicionais</Text>
-            <View style={styles.table}>
-              {formData.additionalItems.map((item, index) => (
-                <View key={index} style={styles.row}>
-                  <Text style={styles.item}>
-                    {item.name}............................................
-                    {item.quantity}
-                  </Text>
-                </View>
-              ))}
-            </View>
-          </View>
+        <View style={styles.section}>
+          <Text style={styles.bold}>Descrição do Serviço:</Text>
+          <Text style={styles.normalText}>
+            {formData.description || "Nenhuma descrição fornecida"}
+          </Text>
+        </View>
 
-          <View style={styles.section}>
-            <Text style={styles.greenText}>Materiais Complementares</Text>
-            <View style={styles.table}>
-              {formData.complementaryMaterials.map((item, index) => (
-                <View key={index} style={styles.row}>
-                  <Text>
-                    {item.name}.........................................
-                    {item.quantity}
-                  </Text>
-                </View>
-              ))}
-            </View>
+        <View style={styles.section}>
+          <Text style={styles.redText}>Itens Adicionais</Text>
+          <View style={styles.table}>
+            {formData.additionalItems.map((item, index) => (
+              <View key={index} style={styles.row}>
+                <Text style={styles.item}>
+                  {item.name}............................................
+                  {item.quantity}
+                </Text>
+              </View>
+            ))}
           </View>
+        </View>
 
-          <View style={styles.section}>
-            <Text style={styles.bold}>
-              Observações ou Instruções Adicionais:
-            </Text>
-            <Text style={styles.observations}>{formData.observations}</Text>
+        <View style={styles.section}>
+          <Text style={styles.greenText}>Materiais Complementares</Text>
+          <View style={styles.table}>
+            {formData.complementaryMaterials.map((item, index) => (
+              <View key={index} style={styles.row}>
+                <Text>
+                  {item.name}.........................................
+                  {item.quantity}
+                </Text>
+              </View>
+            ))}
           </View>
+        </View>
 
-          <View style={styles.footer}>
-            <Img style={styles.seetings} source={seetings} />
-            <View style={styles.signatureContainer}>
-              <Img style={styles} source={signature} />
-              <View style={styles.signatureLine} />
-              <Text style={styles.textSignature}>Marcelo Timóteo</Text>
-              <Text style={styles.textSignature}>Mecânico Responsável</Text>
-            </View>
+        <View style={styles.section}>
+          <Text style={styles.bold}>Observações ou Instruções Adicionais:</Text>
+          <Text style={styles.observations}>{formData.observations}</Text>
+        </View>
+
+        <View style={styles.footer}>
+          <Img style={styles.seetings} source={seetings} />
+          <View style={styles.signatureContainer}>
+            <Img style={styles} source={signature} />
+            <View style={styles.signatureLine} />
+            <Text style={styles.textSignature}>Marcelo Timóteo</Text>
+            <Text style={styles.textSignature}>Mecânico Responsável</Text>
           </View>
-        </Page>
-      </Document>
-    </PDFViewer>
+        </View>
+      </Page>
+    </Document>
   );
 }
 
