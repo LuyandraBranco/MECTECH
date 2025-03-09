@@ -40,13 +40,7 @@ export default function Home() {
           </section>
 
           <section className="w-[63%] h-auto bg-custom-gray-50 p-10 rounded-md">
-            <PDFViewer
-              width="100%"
-              height="1000px"
-              showToolbar={false}
-            >
-              <OrderServicePDF formData={formData} />
-            </PDFViewer>
+            <OrderServicePDF formData={formData} />
           </section>
         </main>
       </div>
